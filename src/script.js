@@ -24,13 +24,15 @@ function displayTemperature(response){
   cityElement.innerHTML = response.data.name
   let descriptionElement = document.querySelector("#description")
   descriptionElement.innerHTML = response.data.weather[0].description.charAt(0).toUpperCase() + response.data.weather[0].description.slice(1)
-
   let humidityElement = document.querySelector("#humidity")
   humidityElement.innerHTML = response.data.main.humidity
   let windElement = document.querySelector("#wind")
   windElement.innerHTML = Math.round(response.data.wind.speed)
   let dateElement = document.querySelector("#date")
   dateElement.innerHTML = formatDate(response.data.dt * 1000)
+  let iconElement = document.querySelector("#icon")
+  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
+  iconElement.setAttribute("alt", response.data.weather[0].description.charAt(0).toUpperCase() + response.data.weather[0].description.slice(1))
 }
 
 let apiKey = "05d59b97163becec12a0f8000856ca3e"
