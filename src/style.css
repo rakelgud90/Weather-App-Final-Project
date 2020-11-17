@@ -31,12 +31,6 @@ footer {
   background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
 }
 
-.weather-temperature {
-  font-size: 40px;
-  font-weight: 900;
-  color: #fff5ea;
-}
-
 .units {
   font-size: 18px;
   color: #fff5ea;
@@ -52,6 +46,12 @@ footer {
 #icon {
   font-size: 100px;
   margin: 20px;
+}
+
+#current-temperature {
+  font-size: 40px;
+  font-weight: 900;
+  color: #fff5ea;
 }
 
 #weather-details {
