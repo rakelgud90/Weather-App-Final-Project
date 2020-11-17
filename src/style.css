@@ -53,10 +53,6 @@ footer {
   line-height: 1;
 }
 
-.weather-forecast {
-  text-align: center;
-}
-
 #city {
   font-weight: 900;
 }
@@ -73,4 +69,8 @@ footer {
 
 #weather-details {
   margin-top: 20px;
+}
+
+#weather-forecast {
+  text-align: center;
 }
