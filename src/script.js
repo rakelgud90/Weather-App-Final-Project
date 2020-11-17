@@ -18,15 +18,15 @@ function formatDate(timestamp){
 }
 
 function formatSunrise(timestamp) {
-let date = new Date(timestamp)
-let hours = date.getHours()
-if (hours < 10) {
-  hours = `0${hours}`
-}
-let minutes = date.getMinutes()
-   if (minutes < 10) {
-    minutes = `0${minutes}`
-  }
+  let date = new Date(timestamp)
+  let hours = date.getHours()
+    if (hours < 10) {
+      hours = `0${hours}`
+    }
+  let minutes = date.getMinutes()
+    if (minutes < 10) {
+      minutes = `0${minutes}`
+    }
   return `${hours}:${minutes}`
 }
 
@@ -43,9 +43,10 @@ let minutes = date.getMinutes()
   return `${hours}:${minutes}`
 }
 
-function displayTemperature(response){
+function displayData(response){
+  celsiusTemperature = response.data.main.temp
   let temperatureElement = document.querySelector("#current-temperature")
-  temperatureElement.innerHTML = Math.round(response.data.main.temp)
+  temperatureElement.innerHTML = Math.round(celsiusTemperature)
   
   let cityElement = document.querySelector("#city")
   cityElement.innerHTML = response.data.name
@@ -77,7 +78,7 @@ function search(city) {
   let apiKey = "05d59b97163becec12a0f8000856ca3e"
   let apiUrl =`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
 
-  axios.get(apiUrl).then(displayTemperature)
+  axios.get(apiUrl).then(displayData)
 }
 
 function handleSubmit(event) {
@@ -86,23 +87,52 @@ function handleSubmit(event) {
   search(cityInputElement.value)
 }
 
-search("Lisbon")
-
-let form = document.querySelector("#search-form")
-form.addEventListener("submit", handleSubmit)
-
 function getCurrentDetails(position){
   let lat = position.coords.latitude
   let lon = position.coords.longitude
   let apiKey = "05d59b97163becec12a0f8000856ca3e"
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
 
-  axios.get(apiUrl).then(displayTemperature)
+  axios.get(apiUrl).then(displayData)
 }
 
 function getCoordinates(){
   navigator.geolocation.getCurrentPosition(getCurrentDetails)
 }
 
+function showFahrenheitTemperature(event) {
+  event.preventDefault()
+
+  celsiusLink.classList.remove("active")
+  fahrenheitLink.classList.add("active")
+
+  let temperatureElement = document.querySelector("#current-temperature")
+  let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32)
+  temperatureElement.innerHTML = fahrenheitTemperature
+}
+
+function showCelsiusTemperature(event) {
+  event.preventDefault()
+
+  fahrenheitLink.classList.remove("active")
+  celsiusLink.classList.add("active")
+
+  let temperatureElement = document.querySelector("#current-temperature")
+  temperatureElement.innerHTML = Math.round(celsiusTemperature)
+}
+
+let form = document.querySelector("#search-form")
+form.addEventListener("submit", handleSubmit)
+
 let currentLocButton = document.querySelector(".current-loc-btn")
 currentLocButton.addEventListener("click", getCoordinates)
+
+let celsiusTemperature = null
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link")
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature)
+
+let celsiusLink = document.querySelector("#celsius-link")
+celsiusLink.addEventListener("click", showCelsiusTemperature)
+
+search("Lisbon")
