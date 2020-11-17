@@ -5,7 +5,7 @@ body {
 }
 
 h1 {
-  margin-bottom: 0;
+  margin-bottom: 4px;
   color: #fff5ea;
 }
 
@@ -44,7 +44,7 @@ footer {
 }
 
 #icon {
-  width: 150px;
+  width: 100px;
 }
 
 #current-temperature {
