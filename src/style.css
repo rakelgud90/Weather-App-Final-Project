@@ -1,17 +1,17 @@
 body {
   font-family: "Segoe UI", "Cerebri Sans", "Source Code Pro", monospace;
-  color: #fff5ea;
-  font-size: 15px;
+  color: #394867;
+  font-size: 14px;
 }
 
 h1 {
   margin-bottom: 0;
+  color: #fff5ea;
 }
 
 ul {
   margin: 0;
   padding: 0;
-  color: #394867;
 }
 
 li {
@@ -19,7 +19,6 @@ li {
 }
 
 footer {
-  color: #394867;
   text-align: center;
 }
 
@@ -30,6 +29,20 @@ footer {
   border-radius: 5px;
   padding: 20px;
   background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+}
+
+.weather-temperature {
+  font-size: 40px;
+  font-weight: 900;
+  color: #fff5ea;
+}
+
+.units {
+  font-size: 18px;
+  color: #fff5ea;
+  position: relative;
+  top: -15px;
+  line-height: 1;
 }
 
 #city {
