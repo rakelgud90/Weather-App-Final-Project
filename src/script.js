@@ -63,7 +63,8 @@ function displayForecast(response) {
       <p>${formatForecastDay(forecast.dt * 1000)}</p>
       <img
       src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
-      alt="${forecast.weather[0].description}">
+      alt="${forecast.weather[0].description}"
+      class="w-100">
       <p><strong>
       ${Math.round(forecast.temp.max)} ºC
       </strong> | 
