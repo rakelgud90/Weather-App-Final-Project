@@ -39,6 +39,10 @@ footer {
   line-height: 1;
 }
 
+.current-loc-btn:hover {
+  color: #394867;
+}
+
 #city {
   font-weight: 900;
 }

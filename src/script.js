@@ -52,3 +52,19 @@ search("Lisbon")
 
 let form = document.querySelector("#search-form")
 form.addEventListener("submit", handleSubmit)
+
+function getCurrentDetails(position){
+  let lat = position.coords.latitude
+  let lon = position.coords.longitude
+  let apiKey = "05d59b97163becec12a0f8000856ca3e"
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
+
+  axios.get(apiUrl).then(displayTemperature)
+}
+
+function getCoordinates(){
+  navigator.geolocation.getCurrentPosition(getCurrentDetails)
+}
+
+let currentLocButton = document.querySelector(".current-loc-btn")
+currentLocButton.addEventListener("click", getCoordinates)
