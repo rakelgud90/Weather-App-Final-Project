@@ -29,6 +29,7 @@ span .active:hover {
 
 footer {
   text-align: center;
+  margin-top: 20px;
 }
 
 .box {
@@ -50,6 +51,10 @@ footer {
   position: relative;
   top: -15px;
   line-height: 1;
+}
+
+.weather-forecast {
+  text-align: center;
 }
 
 #city {
