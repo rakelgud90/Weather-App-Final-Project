@@ -60,7 +60,7 @@ function displayForecast(response) {
     forecast = response.data.daily[index];
     forecastElement.innerHTML += 
     `<div class="col-2">
-      <p>${formatForecastDay(forecast.dt * 1000)}</p>
+      <p class="forecast-week-day">${formatForecastDay(forecast.dt * 1000)}</p>
       <img
       src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
       alt="${forecast.weather[0].description}"

@@ -53,6 +53,11 @@ footer {
   line-height: 1;
 }
 
+.forecast-week-day {
+  position: relative;
+  bottom: -25px;
+}
+
 #city {
   font-weight: 900;
   font-size: 75px;
